@@ -1,6 +1,7 @@
 <h1>Emprego Já</h1>
-  <% @jobs.each do |j|%>
-    <h1><%=link_to j.title, job_path(j)  %></h1>
-    <p><%=j.company%></p>
-    <p><%=j.location%></p>
-  <% end %>
+<%=@job.title%>
+<%=@job.category%>
+<%=@job.company%>
+<%=@job.description%>
+<%=@job.location%>
+<%=link_to 'Voltar', root_path%>
