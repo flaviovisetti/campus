@@ -1,7 +1,8 @@
 <h1>Emprego Já</h1>
 <h1><%=@job.title%></h1>
-<%=@job.category%>
-<%=@job.company%>
-<%=@job.description%>
-<%=@job.location%>
+<p>Categoria<%=@job.category%></p>
+<p>Empresa<%=@job.company%></p>
+<p>Descrição<%=@job.description%></p>
+<p>Local<%=@job.location%></p>
+<p><strong>Destaque</strong><%=@job.featured?%></p>
 <%=link_to 'Voltar', root_path%>

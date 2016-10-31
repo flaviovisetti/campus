@@ -3,4 +3,8 @@
     <h1><%=link_to j.title, job_path(j.id)%></h1>
     <p><%=j.company%></p>
     <p><%=j.location%></p>
+    <%if j.featured? %>
+      <strong><%='Destaque'%></strong>
+    <% end %>
+
   <% end %>
