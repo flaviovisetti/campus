@@ -1,37 +1,47 @@
 class JobsController < ApplicationController
+
   def show
-      id = params[:id]
-      @job = Job.find(id)
+      @job = Job.find(params[:id])
   end
 
   def new
     @job = Job.new
+    @companies = Company.all
   end
 
   def create
-    new_job_params = params.require(:job).permit(:title, :location, :category, :description, :featured, :company_id)
-    @job = Job.new(new_job_params)
+    @job = Job.new(params_job)
 
     if @job.save
       redirect_to job_path(@job)
     else
-      redirect_to new_job_path, flash: { referral_code: 'Não foi possível criar a vaga' }
+      @companies = Company.all
+      flash.now[:alert] = 'Não foi possível criar a vaga'
+      render :new
     end
   end
 
   def edit
     @job = Job.find(params[:id])
+    @companies = Company.all
   end
 
   def update
-    edit_job_params = params.require(:job).permit(:title, :location, :category, :description, :featured, :company_id)
-    @job = Job.new(edit_job_params)
+    @job = Job.find(params[:id])
 
-    if @job.save
+    if @job.update(params_job)
       redirect_to job_path(@job)
     else
-      redirect_to edit_job_path, flash: { referral_code: 'Não foi possível atualizar a vaga' }
+      @companies = Company.all
+      flash.now[:alert] = 'Não foi possível atualizar a vaga'
+      render :edit
     end
+  end
+
+  private
+
+  def params_job
+    params.require(:job).permit(:title, :location, :category, :description, :featured, :company_id)
   end
 
 end
