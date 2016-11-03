@@ -17,7 +17,6 @@ class JobsController < ApplicationController
     else
       redirect_to new_job_path, flash: { referral_code: 'Não foi possível criar a vaga' }
     end
-
   end
 
   def edit
