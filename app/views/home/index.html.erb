@@ -10,10 +10,10 @@
   <% end %>
 
 
-  <% @companies.each do |c|%>
-    <%= link_to c.name, company_path(c.id)%>
+  <% @companies.each do |company|%>
+    <%= link_to company.name, company%>
   <% end%>
 
-  <%= @categories.each do |ct|%>
+  <% @categories.each do |ct|%>
     <%= link_to ct.name, category_path(ct.id) %>
   <% end%>
