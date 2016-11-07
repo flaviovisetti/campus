@@ -3,11 +3,8 @@
 <%= @company.mail%>
 <%= @company.phone%>
 
-<%unless @company_jobs.empty?%>
-  <% @company_jobs.each do |cj|%>
-    <%= cj.title %>
-    <%= cj.category %>
-  <% end %>
+<%unless @company.jobs.empty?%>
+  <%= render @company.jobs %>
 <% else %>
   Nenhuma vaga disponível
 <% end %>
