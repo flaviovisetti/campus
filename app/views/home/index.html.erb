@@ -1,44 +1,37 @@
-<table>
-  <th>
-    <td><%= link_to "Empregos", new_job_path %> </td>
-  </th>
-
-  <th>
-    <td><%= link_to "Empresa", new_company_path%></td>
-  </th>
-
-
-
-
-</table>
-
-
-  <% @jobs.each do |j|%>
-  <div>
-    <div>
-      <table border="0">
-        <tr>
-          <td><h1><%=link_to j.title, job_path(j.id)%></h1></td>
-        </tr>
-        <tr>
-          <td><%=j.company.name%> </td>
-        </tr>
-        <tr>
-          <td><%=j.location%></td>
-        </tr>
-         <%if j.featured? %>
-            <strong><%='Destaque'%></strong>
-          <% end %>
-      </table>
-    </div>
+<div id="pagina">
+  <div id="header">
+    <h1>Emprego Já</h1>
   </div>
-  <% end %>
+  <div id="menu">
+    <%= link_to "Empregos", new_job_path %>
+    <%= link_to "Empresa", new_company_path%>
+  </div>
+  <div id="conteudo">
+    <% @jobs.each do |j|%>
+      <ul>
+        <h1><%=link_to j.title, job_path(j.id)%></h1>
+        <li><%=j.company.name%></li>
+        <li><%=j.location%></li>
 
+        <%if j.featured? %>
+          <li><strong><%='Destaque'%></strong></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+  <div id="lateral">
 
-  <% @companies.each do |company|%>
-    <%= link_to company.name, company%>
-  <% end%>
+    <ul><strong>Empresa</strong>
+      <% @companies.each do |company|%>
+        <li><%= link_to company.name, company%></li>
+      <% end%>
+    </ul>
 
-  <% @categories.each do |ct|%>
-    <%= link_to ct.name, category_path(ct.id) %>
-  <% end%>
+    <ul><strong>Categorias</strong>
+      <% @categories.each do |ct|%>
+        <li><%= link_to ct.name, category_path(ct.id) %></li>
+      <% end%>
+    </ul>
+
+  </div>
+</div>

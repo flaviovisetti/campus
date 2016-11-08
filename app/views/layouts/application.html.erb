@@ -6,10 +6,49 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <style>
+      #pagina {
+        width:1000px;
+        height: 1000px;
+        margin: auto;
+      }
+
+      #header {
+          width: 1000px;
+          height: 100px;
+          text-align: center;
+          background-color: #5dbcfc;
+          border-radius: 10px;
+      }
+
+      #menu {
+        width: 1000px;
+        height: 40px;
+      }
+
+      #conteudo {
+        width: 500px;
+        height: 100px;
+      }
+
+      #lateral {
+        margin-left: 800px;
+      }
+
+      a {
+        text-decoration: none
+      }
+
+      ul {
+        border-style: dotted;
+        border-color: #d1ecff;
+        border-radius: 10px;
+      }
+
+    </style>
   </head>
 
   <body>
-    <h1>Emprego Já</h1>
     <%= yield %>
   </body>
 </html>
