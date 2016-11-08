@@ -1,6 +1,6 @@
 <%= form_for @job do |f| %>
   <%= f.label :title, 'Título' %>
-  <h1><%= f.text_field :title%></h1>
+  <%= f.text_field :title%>
   <%= f.label :location, 'Local' %>
   <%= f.text_field :location%>
   <%= f.label :category_id, 'Categoria' %>
@@ -13,6 +13,8 @@
   <%= f.check_box :featured %>
 
   <%= f.submit texto %>
+
+  <%= link_to "Voltar", root_path %>
 
   <% flash.each do |name, msg| -%>
       <%= content_tag :div, msg, class: name %>

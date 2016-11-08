@@ -1,12 +1,37 @@
-<h1>Emprego Já</h1>
-  <% @jobs.each do |j|%>
-    <h1><%=link_to j.title, job_path(j.id)%></h1>
-    <p><%=j.company.name%></p>
-    <p><%=j.location%></p>
-    <%if j.featured? %>
-      <strong><%='Destaque'%></strong>
-    <% end %>
+<table>
+  <th>
+    <td><%= link_to "Empregos", new_job_path %> </td>
+  </th>
 
+  <th>
+    <td><%= link_to "Empresa", new_company_path%></td>
+  </th>
+
+
+
+
+</table>
+
+
+  <% @jobs.each do |j|%>
+  <div>
+    <div>
+      <table border="0">
+        <tr>
+          <td><h1><%=link_to j.title, job_path(j.id)%></h1></td>
+        </tr>
+        <tr>
+          <td><%=j.company.name%> </td>
+        </tr>
+        <tr>
+          <td><%=j.location%></td>
+        </tr>
+         <%if j.featured? %>
+            <strong><%='Destaque'%></strong>
+          <% end %>
+      </table>
+    </div>
+  </div>
   <% end %>
 
 
