@@ -1,0 +1,14 @@
+<%= form_for @category do |f_category| %>
+  <%= f_category.label :name, 'Nome' %>
+  <%= f_category.text_field :name %>
+  <%= f_category.submit 'Salvar Categoria' %>
+
+  <% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, class: name %>
+  <% end %>
+
+  <% @category.errors.full_messages.each do |msg| %>
+      <%= msg %>
+    <% end %>
+
+<% end %>
