@@ -1,0 +1,12 @@
+<%= form_for @company do |f_company| %>
+  <%= f_company.label :name, 'Nome' %>
+  <%= f_company.text_field :name%>
+  <%= f_company.label :location, 'Local' %>
+  <%= f_company.text_field :location %>
+  <%= f_company.label :mail, 'E-mail' %>
+  <%= f_company.text_field :mail %>
+  <%= f_company.label :phone, 'Telefone' %>
+  <%= f_company.text_field :phone %>
+  
+  <%= f_company.submit 'Atualizar' %>
+<% end %>

@@ -13,6 +13,15 @@ class CompaniesController < ApplicationController
     @company = Company.find(params[:id])
   end
 
+  def edit
+    @company = Company.find(params[:id])
+  end
+
+  def update
+    company = Company.update(params_company)
+    redirect_to company_url(company)
+  end
+
   private
 
   def params_company
