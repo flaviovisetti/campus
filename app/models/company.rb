@@ -3,6 +3,7 @@ class Company < ApplicationRecord
 
   def premium?
     if self.jobs.size >= 5
+      true
     end
   end
 
