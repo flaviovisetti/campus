@@ -19,11 +19,10 @@ feature 'editing category' do
 
     visit edit_category_path(category)
 
-    fill_in('Nome', with: '')
-
+    fill_in('Nome', with: "")
     click_on('Atualizar')
 
-    expect(page).to have_content('Não é possível atualiza categoria')
+    expect(page).to have_content('Não é possível atualizar categoria')
   end
 
 end

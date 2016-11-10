@@ -19,5 +19,21 @@ class CategoriesController < ApplicationController
     end
   end
 
+  def edit
+    @category = Category.find(params[:id])
+  end
+
+  def update
+    category_params = params.require(:category).permit(:name)
+    category = Category.find(params[:id])
+
+    if category.update(category_params)
+      redirect_to category_url(category)
+    else
+      @category = Category.find(params[:id])
+      flash.now[:alert] = 'Não é possível atualizar categoria'
+      render :edit
+    end
+  end
 
 end
