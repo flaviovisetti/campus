@@ -9,7 +9,9 @@
   <div id="conteudo">
     <% @jobs.each do |j|%>
       <ul>
-        <h1><%=link_to j.title, job_path(j.id)%></h1>
+        <%unless j.expired? %>
+          <h1><%=link_to j.title, job_path(j.id)%></h1>
+        <% end %>
         <li><%=j.company.name%></li>
         <li><%=j.location%></li>
 

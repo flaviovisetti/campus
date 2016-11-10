@@ -8,7 +8,7 @@ class Job < ApplicationRecord
   validates :category, presence: { message: "can't be blank"}
 
   def expired?
-    
+     Date.today >= (created_at.to_date + 90)
   end
 
 end
