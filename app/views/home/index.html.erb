@@ -8,6 +8,12 @@
   </div>
   <div id="conteudo">
     <% @jobs.each do |j|%>
+      <div id="first-child">
+        <% if j.recent? %>
+          Novidade
+        <% end %>
+      </div>
+
       <ul>
         <%unless j.expired? %>
           <h1><%=link_to j.title, job_path(j.id)%></h1>

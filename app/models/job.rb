@@ -11,4 +11,8 @@ class Job < ApplicationRecord
      Date.today >= (created_at.to_date + 90)
   end
 
+  def recent?
+    Date.today <= (created_at.to_date + 5)
+  end
+
 end
